@@ -7,7 +7,7 @@ const db = new Low(adapter);
 export async function initializeDB() {
     await db.read();
     if (db.data === null) {
-        db.data = { posts: [] };
+        db.data ||= { posts: [] };
         await db.write();
     }
 }
